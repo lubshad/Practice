@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:text="Dashboard"
+        android:text="@string/title_dashboard"
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
