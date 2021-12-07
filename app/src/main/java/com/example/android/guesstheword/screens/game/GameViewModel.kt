@@ -8,6 +8,7 @@ import androidx.lifecycle.asLiveData
 
 
 const val TAG = "GAME"
+
 class GameViewModel : ViewModel() {
     init {
         Log.i("GameViewModel", "GameViewModel created!")
@@ -65,11 +66,10 @@ class GameViewModel : ViewModel() {
         nextWord()
     }
 
-    fun onCorrect() {
+    private fun onCorrect() {
         val newScore = score.value!! + 1
         score.value = newScore
         Log.e(TAG, score.value!!.toString())
-        nextWord()
     }
 
     /**
@@ -79,6 +79,8 @@ class GameViewModel : ViewModel() {
         if (!wordList.isNullOrEmpty()) {
             //Select and remove a word from the list
             word.value = wordList.removeAt(0)
+            onCorrect()
         }
     }
+
 }

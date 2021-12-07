@@ -25,6 +25,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.example.android.guesstheword.R
 import com.example.android.guesstheword.databinding.GameFragmentBinding
 
@@ -44,7 +45,7 @@ class GameFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         Log.i("GameFragment", "Called ViewModelProvider.get")
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
@@ -57,6 +58,8 @@ class GameFragment : Fragment() {
             false
         )
 
+
+
         viewModel.word.observe(viewLifecycleOwner) {
             value->
             value?.let {
@@ -67,10 +70,19 @@ class GameFragment : Fragment() {
 
         viewModel.nextWord()
 
-        binding.correctButton.setOnClickListener { viewModel.onCorrect() }
+        binding.correctButton.setOnClickListener { viewModel.nextWord() }
         binding.skipButton.setOnClickListener { viewModel.onSkip() }
+        binding.endGameButton.setOnClickListener {
+            endGame()
+        }
         return binding.root
 
+    }
+
+    private fun endGame() {
+        val action = GameFragmentDirections.actionGameToScore()
+        action.score = viewModel.score.value!!
+        findNavController().navigate(action)
     }
 
 
