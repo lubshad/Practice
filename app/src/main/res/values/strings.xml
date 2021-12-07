@@ -5,4 +5,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="current_locale">EN</string>
+    <string name="fan_off" translatable="false">OFF</string>
+    <string name="fan_low" translatable="false">1</string>
+    <string name="fan_medium" translatable="false">2</string>
+    <string name="fan_high" translatable="false">3</string>
 </resources>
