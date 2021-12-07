@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">My Application</string>
-    <string name="title_home">hogar</string>
-    <string name="title_dashboard">Tablero</string>
-    <string name="title_notifications">Notificaciones</string>
-    <string name="title_activity_main2">"Hoja c Chibi ty2 "</string>
-    <string name="current_locale">ES</string>
-</resources>
